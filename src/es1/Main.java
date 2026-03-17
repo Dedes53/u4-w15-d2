@@ -10,8 +10,8 @@ public class Main {
 
         Scanner scan = new Scanner(System.in);
 
-        Set<String> distinte = new HashSet<>(); //parole distinte
-        Set<String> doppie = new HashSet<>(); //parole doppie
+        Set<String> single = new HashSet<>(); //parole single
+        Set<String> duplicated = new HashSet<>(); //parole doppie
 
         try {
             System.out.println("Indica il numero di parole che desideri inserire");
@@ -25,22 +25,22 @@ public class Main {
 
             for (int i = 1; i <= n; i++) {
                 System.out.println("Inserisci la parola n." + i + ": ");
-                String parola = scan.nextLine().trim();
+                String word = scan.nextLine().trim();
 
-                if (parola.isEmpty()) {
+                if (word.isEmpty()) {
                     System.out.println("Dai, inserisci una parola valida almeno");
                     i--;
                     continue;
                 }
 
-                boolean aggiunta = distinte.add(parola); //add() ritorna falso se parola è già presente nella lista
+                boolean isAdded = single.add(word); //add() ritorna falso se parola è già presente nella lista
 
-                if (!aggiunta) doppie.add(parola); //quindi la aggiungo alla lista delle doppie
+                if (!isAdded) duplicated.add(word); //quindi la aggiungo alla lista delle doppie
             }
 
-            System.out.println("\nParole doppie: " + doppie); //stampa parole doppie
-            System.out.println("Numero parole distinte: " + distinte.size()); //stampa numero degli elementi in distinte
-            System.out.println("Elenco delle parole distinte: " + distinte);
+            System.out.println("\nParole doppie: " + duplicated); //stampa parole doppie
+            System.out.println("Numero parole single: " + single.size()); //stampa numero degli elementi in single
+            System.out.println("Elenco delle parole single: " + single);
         } catch (InputMismatchException e) {
             System.out.println("Ma secondo te, potrai aggiungere una parola non intera?!");
         } finally {
