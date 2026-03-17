@@ -3,7 +3,7 @@ package es2;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
+import java.util.Random;
 
 public class Main {
     static void main(String[] args) {
@@ -28,9 +28,9 @@ public class Main {
     //n interi casuali tra 0 e 100
     static List<Integer> randomList(int n) {
         List<Integer> random = new ArrayList<>();
-
+        Random rndm = new Random();
         for (int i = 0; i < n; i++) {
-            int r = ThreadLocalRandom.current().nextInt(0, 101);
+            int r = rndm.nextInt(0, 101);
             random.add(r);
         }
 
